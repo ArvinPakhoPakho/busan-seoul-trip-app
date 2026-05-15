@@ -119,7 +119,7 @@ export function useShoppingPhotos() {
             );
           });
 
-          // 存到 IndexedDB（只存 URL，不存圖片 binary）
+          // 存到 IndexedDB
           await savePhoto({
             itemId,
             name: fileName,
@@ -128,9 +128,7 @@ export function useShoppingPhotos() {
             uploadedAt: new Date(),
           });
 
-          await refreshPhotos();
-
-          // 更新為完成狀態
+          // 先更新為完成狀態
           setUploadStatuses((prev) =>
             prev.map((s) =>
               s.itemId === itemId &&
@@ -141,7 +139,10 @@ export function useShoppingPhotos() {
             ),
           );
 
-          // 3 秒後移除
+          // 再刷新照片（確保在 done 狀態之後）
+          await refreshPhotos();
+
+          // 3 秒後移除狀態
           setTimeout(() => {
             setUploadStatuses((prev) =>
               prev.filter(
@@ -154,6 +155,7 @@ export function useShoppingPhotos() {
               ),
             );
           }, 3000);
+
         } catch (err) {
           setUploadStatuses((prev) =>
             prev.map((s) =>
