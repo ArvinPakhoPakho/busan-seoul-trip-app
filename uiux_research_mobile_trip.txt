@@ -1,0 +1,309 @@
+## UI Pro Max Search Results
+**Domain:** product | **Query:** mobile travel itinerary romantic soft hk user
+**Source:** products.csv | **Found:** 5 results
+
+### Result 1
+- **Product Type:** Travel/Tourism Agency
+- **Keywords:** agency, booking, creative, design, flight, hotel, marketing, studio, tourism, travel, vacation
+- **Primary Style Recommendation:** Aurora UI + Motion-Driven
+- **Secondary Styles:** Vibrant & Block-based, Glassmorphism
+- **Landing Page Pattern:** Storytelling-Driven + Hero-Centric
+- **Dashboard Style (if applicable):** Booking Analytics
+- **Color Palette Focus:** Vibrant destination colors + Sky Blue + Warm accents
+
+### Result 2
+- **Product Type:** Wedding/Event Planning
+- **Keywords:** conference, event, meetup, planning, registration, ticket, wedding
+- **Primary Style Recommendation:** Soft UI Evolution + Aurora UI
+- **Secondary Styles:** Glassmorphism, Motion-Driven
+- **Landing Page Pattern:** Storytelling-Driven + Social Proof
+- **Dashboard Style (if applicable):** N/A - Planning focused
+- **Color Palette Focus:** Soft Pink (#FFD6E0) + Gold + Cream + Sage
+
+### Result 3
+- **Product Type:** Banking/Traditional Finance
+- **Keywords:** banking, finance, traditional
+- **Primary Style Recommendation:** Minimalism + Accessible & Ethical
+- **Secondary Styles:** Trust & Authority, Dark Mode (OLED)
+- **Landing Page Pattern:** Trust & Authority + Feature-Rich
+- **Dashboard Style (if applicable):** Financial Dashboard
+- **Color Palette Focus:** Navy (#0A1628) + Trust Blue + Gold accents
+
+### Result 4
+- **Product Type:** Airline
+- **Keywords:** ai, airline, artificial-intelligence, automation, machine-learning, ml
+- **Primary Style Recommendation:** Minimalism + Glassmorphism
+- **Secondary Styles:** Motion-Driven, Accessible & Ethical
+- **Landing Page Pattern:** Conversion-Optimized + Feature-Rich
+- **Dashboard Style (if applicable):** Operations Dashboard
+- **Color Palette Focus:** Sky Blue + Brand colors + Trust accents
+
+### Result 5
+- **Product Type:** News/Media Platform
+- **Keywords:** content, entertainment, media, news, platform, streaming, video
+- **Primary Style Recommendation:** Minimalism + Flat Design
+- **Secondary Styles:** Dark Mode (OLED), Accessible & Ethical
+- **Landing Page Pattern:** Hero-Centric Design + Feature-Rich
+- **Dashboard Style (if applicable):** Media Analytics Dashboard
+- **Color Palette Focus:** Brand colors + High contrast + Category colors
+
+
+---STYLE---
+## UI Pro Max Search Results
+**Domain:** style | **Query:** soft romantic editorial cream blush mist blue
+**Source:** styles.csv | **Found:** 5 results
+
+### Result 1
+- **Style Category:** Soft UI Evolution
+- **Type:** General
+- **Keywords:** Evolved soft UI, better contrast, modern aesthetics, subtle depth, accessibility-focused, improved shadows, hybrid
+- **Primary Colors:** Improved contrast pastels: Soft Blue #87CEEB, Soft Pink #FFB6C1, Soft Green #90EE90, better hierarchy
+- **Effects & Animation:** Improved shadows (softer than flat, clearer than neumorphism), modern (200-300ms), focus visible, WCAG AA/AAA
+- **Best For:** Modern enterprise apps, SaaS platforms, health/wellness, modern business tools, professional, hybrid
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA+
+- **Framework Compatibility:** Tailwind 9/10, MUI 9/10, Chakra 9/10
+- **Complexity:** Medium
+
+### Result 2
+- **Style Category:** Dark Mode (OLED)
+- **Type:** General
+- **Keywords:** Dark theme, low light, high contrast, deep black, midnight blue, eye-friendly, OLED, night mode, power efficient
+- **Primary Colors:** Deep Black #000000, Dark Grey #121212, Midnight Blue #0A0E27
+- **Effects & Animation:** Minimal glow (text-shadow: 0 0 10px), dark-to-light transitions, low white emission, high readability, visible focus
+- **Best For:** Night-mode apps, coding platforms, entertainment, eye-strain prevention, OLED devices, low-light
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+- **Framework Compatibility:** Tailwind 10/10, MUI 10/10, Chakra 10/10
+- **Complexity:** Low
+
+### Result 3
+- **Style Category:** Swiss Modernism 2.0
+- **Type:** General
+- **Keywords:** Grid system, Helvetica, modular, asymmetric, international style, rational, clean, mathematical spacing
+- **Primary Colors:** #000000, #FFFFFF, #F5F5F5, single vibrant accent only
+- **Effects & Animation:** display: grid, grid-template-columns: repeat(12 1fr), gap: 1rem, mathematical ratios, clear hierarchy
+- **Best For:** Corporate sites, architecture, editorial, SaaS, museums, professional services, documentation
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+- **Framework Compatibility:** Tailwind 10/10, Bootstrap 9/10, Foundation 10/10
+- **Complexity:** Low
+
+### Result 4
+- **Style Category:** Exaggerated Minimalism
+- **Type:** General
+- **Keywords:** Bold minimalism, oversized typography, high contrast, negative space, loud minimal, statement design
+- **Primary Colors:** #000000 (Black), #FFFFFF (White), single vibrant accent only
+- **Effects & Animation:** font-size: clamp(3rem 10vw 12rem), font-weight: 900, letter-spacing: -0.05em, massive whitespace
+- **Best For:** Fashion, architecture, portfolios, agency landing pages, luxury brands, editorial
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** Tailwind 10/10, Typography.js 10/10
+- **Complexity:** Low
+
+### Result 5
+- **Style Category:** Bento Grids
+- **Type:** General
+- **Keywords:** Apple-style, modular, cards, organized, clean, hierarchy, grid, rounded, soft
+- **Primary Colors:** Off-white #F5F5F7, Clean White #FFFFFF, Text #1D1D1F
+- **Effects & Animation:** Hover scale (1.02), soft shadow expansion, smooth layout shifts, content reveal
+- **Best For:** Product features, dashboards, personal sites, marketing summaries, galleries
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** CSS Grid 10/10, Tailwind 10/10
+- **Complexity:** Low
+
+
+---TYPOGRAPHY---
+## UI Pro Max Search Results
+**Domain:** typography | **Query:** elegant readable mobile editorial soft
+**Source:** typography.csv | **Found:** 5 results
+
+### Result 1
+- **Font Pairing Name:** Classic Elegant
+- **Category:** Serif + Sans
+- **Heading Font:** Playfair Display
+- **Body Font:** Inter
+- **Mood/Style Keywords:** elegant, luxury, sophisticated, timeless, premium, editorial
+- **Best For:** Luxury brands, fashion, spa, beauty, editorial, magazines, high-end e-commerce
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Inter:wght@300;400;500;600;700|Playfair+Display:wght@400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+- **Notes:** High contrast between elegant heading and clean body. Perfect for luxury/premium.
+
+### Result 2
+- **Font Pairing Name:** Soft Rounded
+- **Category:** Sans + Sans
+- **Heading Font:** Varela Round
+- **Body Font:** Nunito Sans
+- **Mood/Style Keywords:** soft, rounded, friendly, approachable, warm, gentle
+- **Best For:** Children's products, pet apps, friendly brands, wellness, soft UI
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Nunito+Sans:wght@300;400;500;600;700|Varela+Round
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+- **Tailwind Config:** fontFamily: { heading: ['Varela Round', 'sans-serif'], body: ['Nunito Sans', 'sans-serif'] }
+- **Notes:** Both rounded and friendly. Perfect for soft UI designs.
+
+### Result 3
+- **Font Pairing Name:** News Editorial
+- **Category:** Serif + Sans
+- **Heading Font:** Newsreader
+- **Body Font:** Roboto
+- **Mood/Style Keywords:** news, editorial, journalism, trustworthy, readable, informative
+- **Best For:** News sites, blogs, magazines, journalism, content-heavy sites
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Newsreader:wght@400;500;600;700|Roboto:wght@300;400;500;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Newsreader', 'serif'], sans: ['Roboto', 'sans-serif'] }
+- **Notes:** Newsreader designed for long-form reading. Roboto for UI.
+
+### Result 4
+- **Font Pairing Name:** Japanese Elegant
+- **Category:** Serif + Sans
+- **Heading Font:** Noto Serif JP
+- **Body Font:** Noto Sans JP
+- **Mood/Style Keywords:** japanese, elegant, traditional, modern, multilingual, readable
+- **Best For:** Japanese sites, Japanese restaurants, cultural sites, anime/manga
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Noto+Sans+JP:wght@300;400;500;700|Noto+Serif+JP:wght@400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Noto Serif JP', 'serif'], sans: ['Noto Sans JP', 'sans-serif'] }
+- **Notes:** Noto fonts excellent Japanese support. Traditional + modern feel.
+
+### Result 5
+- **Font Pairing Name:** Arabic Elegant
+- **Category:** Serif + Sans
+- **Heading Font:** Noto Naskh Arabic
+- **Body Font:** Noto Sans Arabic
+- **Mood/Style Keywords:** arabic, elegant, traditional, cultural, RTL, readable
+- **Best For:** Arabic sites, Middle East market, Islamic content, bilingual sites
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Noto+Naskh+Arabic:wght@400;500;600;700|Noto+Sans+Arabic:wght@300;400;500;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Noto Naskh Arabic', 'serif'], sans: ['Noto Sans Arabic', 'sans-serif'] }
+- **Notes:** RTL support. Naskh for traditional, Sans for modern Arabic.
+
+
+---COLOR---
+## UI Pro Max Search Results
+**Domain:** color | **Query:** beauty travel soft service cream blush blue
+**Source:** colors.csv | **Found:** 5 results
+
+### Result 1
+- **Product Type:** Beauty/Spa/Wellness Service
+- **Keywords:** beauty, spa, wellness, service
+- **Primary (Hex):** #10B981
+- **Secondary (Hex):** #34D399
+- **CTA (Hex):** #8B5CF6
+- **Background (Hex):** #ECFDF5
+- **Text (Hex):** #064E3B
+- **Border (Hex):** #A7F3D0
+- **Notes:** Soft pastels (Pink #FFB6C1 Sage #90EE90) + Cream + Gold accents
+
+### Result 2
+- **Product Type:** Travel/Tourism Agency
+- **Keywords:** travel, tourism, agency
+- **Primary (Hex):** #EC4899
+- **Secondary (Hex):** #F472B6
+- **CTA (Hex):** #06B6D4
+- **Background (Hex):** #FDF2F8
+- **Text (Hex):** #831843
+- **Border (Hex):** #FBCFE8
+- **Notes:** Vibrant destination colors + Sky Blue + Warm accents
+
+### Result 3
+- **Product Type:** Wedding/Event Planning
+- **Keywords:** wedding, event, planning
+- **Primary (Hex):** #7C3AED
+- **Secondary (Hex):** #A78BFA
+- **CTA (Hex):** #F97316
+- **Background (Hex):** #FAF5FF
+- **Text (Hex):** #4C1D95
+- **Border (Hex):** #DDD6FE
+- **Notes:** Soft Pink (#FFD6E0) + Gold + Cream + Sage
+
+### Result 4
+- **Product Type:** B2B Service
+- **Keywords:** b2b, service
+- **Primary (Hex):** #0F172A
+- **Secondary (Hex):** #334155
+- **CTA (Hex):** #0369A1
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #020617
+- **Border (Hex):** #E2E8F0
+- **Notes:** Professional blue + neutral grey
+
+### Result 5
+- **Product Type:** Government/Public Service
+- **Keywords:** government, public, service
+- **Primary (Hex):** #0F172A
+- **Secondary (Hex):** #334155
+- **CTA (Hex):** #0369A1
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #020617
+- **Border (Hex):** #E2E8F0
+- **Notes:** Professional blue + high contrast
+
+
+---UX---
+## UI Pro Max Search Results
+**Domain:** ux | **Query:** mobile readability spacing accessibility cards
+**Source:** ux-guidelines.csv | **Found:** 5 results
+
+### Result 1
+- **Category:** Touch
+- **Issue:** Touch Spacing
+- **Platform:** Mobile
+- **Description:** Adjacent touch targets need adequate spacing
+- **Do:** Minimum 8px gap between touch targets
+- **Don't:** Tightly packed clickable elements
+- **Code Example Good:** gap-2 between buttons
+- **Code Example Bad:** gap-0 or gap-1
+- **Severity:** Medium
+
+### Result 2
+- **Category:** Typography
+- **Issue:** Line Height
+- **Platform:** All
+- **Description:** Adequate line height improves readability
+- **Do:** Use 1.5-1.75 for body text
+- **Don't:** Cramped or excessive line height
+- **Code Example Good:** leading-relaxed (1.625)
+- **Code Example Bad:** leading-none (1)
+- **Severity:** Medium
+
+### Result 3
+- **Category:** Typography
+- **Issue:** Contrast Readability
+- **Platform:** All
+- **Description:** Body text needs good contrast
+- **Do:** Use darker text on light backgrounds
+- **Don't:** Gray text on gray background
+- **Code Example Good:** text-gray-900 on white
+- **Code Example Bad:** text-gray-400 on gray-100
+- **Severity:** High
+
+### Result 4
+- **Category:** Content
+- **Issue:** Number Formatting
+- **Platform:** All
+- **Description:** Format large numbers for readability
+- **Do:** Use thousand separators or abbreviations
+- **Don't:** Long unformatted numbers
+- **Code Example Good:** 1.2K or 1,234
+- **Code Example Bad:** 1234567
+- **Severity:** Low
+
+### Result 5
+- **Category:** Forms
+- **Issue:** Mobile Keyboards
+- **Platform:** Mobile
+- **Description:** Show appropriate keyboard for input type
+- **Do:** Use inputmode attribute
+- **Don't:** Default keyboard for all inputs
+- **Code Example Good:** inputmode='numeric'
+- **Code Example Bad:** Text keyboard for numbers
+- **Severity:** Medium
+
+
+---REACT---
+## UI Pro Max Stack Guidelines
+**Stack:** react | **Query:** responsive mobile cards spacing typography
+**Source:** stacks/react.csv | **Found:** 0 results
+

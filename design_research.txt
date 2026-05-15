@@ -1,0 +1,444 @@
+# UI Research
+\n## Product
+## UI Pro Max Search Results
+**Domain:** product | **Query:** mobile travel planner romantic elegant soft
+**Source:** products.csv | **Found:** 5 results
+
+### Result 1
+- **Product Type:** Travel/Tourism Agency
+- **Keywords:** agency, booking, creative, design, flight, hotel, marketing, studio, tourism, travel, vacation
+- **Primary Style Recommendation:** Aurora UI + Motion-Driven
+- **Secondary Styles:** Vibrant & Block-based, Glassmorphism
+- **Landing Page Pattern:** Storytelling-Driven + Hero-Centric
+- **Dashboard Style (if applicable):** Booking Analytics
+- **Color Palette Focus:** Vibrant destination colors + Sky Blue + Warm accents
+
+### Result 2
+- **Product Type:** Wedding/Event Planning
+- **Keywords:** conference, event, meetup, planning, registration, ticket, wedding
+- **Primary Style Recommendation:** Soft UI Evolution + Aurora UI
+- **Secondary Styles:** Glassmorphism, Motion-Driven
+- **Landing Page Pattern:** Storytelling-Driven + Social Proof
+- **Dashboard Style (if applicable):** N/A - Planning focused
+- **Color Palette Focus:** Soft Pink (#FFD6E0) + Gold + Cream + Sage
+
+### Result 3
+- **Product Type:** E-commerce Luxury
+- **Keywords:** buy, commerce, e, ecommerce, elegant, exclusive, high-end, luxury, premium, products, retail, sell, shop, store
+- **Primary Style Recommendation:** Liquid Glass + Glassmorphism
+- **Secondary Styles:** 3D & Hyperrealism, Aurora UI
+- **Landing Page Pattern:** Feature-Rich Showcase
+- **Dashboard Style (if applicable):** Sales Intelligence Dashboard
+- **Color Palette Focus:** Premium colors + minimal accent
+
+### Result 4
+- **Product Type:** Luxury/Premium Brand
+- **Keywords:** brand, elegant, exclusive, high-end, luxury, premium
+- **Primary Style Recommendation:** Liquid Glass + Glassmorphism
+- **Secondary Styles:** Minimalism, 3D & Hyperrealism
+- **Landing Page Pattern:** Storytelling-Driven + Feature-Rich
+- **Dashboard Style (if applicable):** Sales Intelligence Dashboard
+- **Color Palette Focus:** Black + Gold (#FFD700) + White + Minimal accent
+
+### Result 5
+- **Product Type:** Banking/Traditional Finance
+- **Keywords:** banking, finance, traditional
+- **Primary Style Recommendation:** Minimalism + Accessible & Ethical
+- **Secondary Styles:** Trust & Authority, Dark Mode (OLED)
+- **Landing Page Pattern:** Trust & Authority + Feature-Rich
+- **Dashboard Style (if applicable):** Financial Dashboard
+- **Color Palette Focus:** Navy (#0A1628) + Trust Blue + Gold accents
+
+\n## Style
+## UI Pro Max Search Results
+**Domain:** style | **Query:** soft elegant dreamy mature editorial
+**Source:** styles.csv | **Found:** 8 results
+
+### Result 1
+- **Style Category:** Vaporwave
+- **Type:** General
+- **Keywords:** Synthwave, retro-futuristic, 80s-90s, neon, glitch, nostalgic, sunset gradient, dreamy, aesthetic
+- **Primary Colors:** #FF71CE (Pink), #01CDFE (Cyan), #05FFA1 (Mint), #B967FF (Purple)
+- **Effects & Animation:** text-shadow glow, linear-gradient, filter: hue-rotate(), glitch animations, retro scan lines
+- **Best For:** Music platforms, gaming, creative portfolios, tech startups, entertainment, artistic projects
+- **Performance:** ⚠ Moderate
+- **Accessibility:** ⚠ Poor (motion)
+- **Framework Compatibility:** Tailwind 8/10, CSS-in-JS 9/10
+- **Complexity:** Medium
+
+### Result 2
+- **Style Category:** Soft UI Evolution
+- **Type:** General
+- **Keywords:** Evolved soft UI, better contrast, modern aesthetics, subtle depth, accessibility-focused, improved shadows, hybrid
+- **Primary Colors:** Improved contrast pastels: Soft Blue #87CEEB, Soft Pink #FFB6C1, Soft Green #90EE90, better hierarchy
+- **Effects & Animation:** Improved shadows (softer than flat, clearer than neumorphism), modern (200-300ms), focus visible, WCAG AA/AAA
+- **Best For:** Modern enterprise apps, SaaS platforms, health/wellness, modern business tools, professional, hybrid
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA+
+- **Framework Compatibility:** Tailwind 9/10, MUI 9/10, Chakra 9/10
+- **Complexity:** Medium
+
+### Result 3
+- **Style Category:** Swiss Modernism 2.0
+- **Type:** General
+- **Keywords:** Grid system, Helvetica, modular, asymmetric, international style, rational, clean, mathematical spacing
+- **Primary Colors:** #000000, #FFFFFF, #F5F5F5, single vibrant accent only
+- **Effects & Animation:** display: grid, grid-template-columns: repeat(12 1fr), gap: 1rem, mathematical ratios, clear hierarchy
+- **Best For:** Corporate sites, architecture, editorial, SaaS, museums, professional services, documentation
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+- **Framework Compatibility:** Tailwind 10/10, Bootstrap 9/10, Foundation 10/10
+- **Complexity:** Low
+
+### Result 4
+- **Style Category:** Exaggerated Minimalism
+- **Type:** General
+- **Keywords:** Bold minimalism, oversized typography, high contrast, negative space, loud minimal, statement design
+- **Primary Colors:** #000000 (Black), #FFFFFF (White), single vibrant accent only
+- **Effects & Animation:** font-size: clamp(3rem 10vw 12rem), font-weight: 900, letter-spacing: -0.05em, massive whitespace
+- **Best For:** Fashion, architecture, portfolios, agency landing pages, luxury brands, editorial
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** Tailwind 10/10, Typography.js 10/10
+- **Complexity:** Low
+
+### Result 5
+- **Style Category:** Bento Grids
+- **Type:** General
+- **Keywords:** Apple-style, modular, cards, organized, clean, hierarchy, grid, rounded, soft
+- **Primary Colors:** Off-white #F5F5F7, Clean White #FFFFFF, Text #1D1D1F
+- **Effects & Animation:** Hover scale (1.02), soft shadow expansion, smooth layout shifts, content reveal
+- **Best For:** Product features, dashboards, personal sites, marketing summaries, galleries
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** CSS Grid 10/10, Tailwind 10/10
+- **Complexity:** Low
+
+### Result 6
+- **Style Category:** Brutalism
+- **Type:** General
+- **Keywords:** Raw, unpolished, stark, high contrast, plain text, default fonts, visible borders, asymmetric, anti-design
+- **Primary Colors:** Primary: Red #FF0000, Blue #0000FF, Yellow #FFFF00, Black #000000, White #FFFFFF
+- **Effects & Animation:** No smooth transitions (instant), sharp corners (0px), bold typography (700+), visible grid, large blocks
+- **Best For:** Design portfolios, artistic projects, counter-culture brands, editorial/media sites, tech blogs
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+- **Framework Compatibility:** Tailwind 10/10, Bootstrap 7/10
+- **Complexity:** Low
+
+### Result 7
+- **Style Category:** Neumorphism
+- **Type:** General
+- **Keywords:** Soft UI, embossed, debossed, convex, concave, light source, subtle depth, rounded (12-16px), monochromatic
+- **Primary Colors:** Light pastels: Soft Blue #C8E0F4, Soft Pink #F5E0E8, Soft Grey #E8E8E8
+- **Effects & Animation:** Soft box-shadow (multiple: -5px -5px 15px, 5px 5px 15px), smooth press (150ms), inner subtle shadow
+- **Best For:** Health/wellness apps, meditation platforms, fitness trackers, minimal interaction UIs
+- **Performance:** ⚡ Good
+- **Accessibility:** ⚠ Low contrast
+- **Framework Compatibility:** Tailwind 8/10, CSS-in-JS 9/10
+- **Complexity:** Medium
+
+### Result 8
+- **Style Category:** Claymorphism
+- **Type:** General
+- **Keywords:** Soft 3D, chunky, playful, toy-like, bubbly, thick borders (3-4px), double shadows, rounded (16-24px)
+- **Primary Colors:** Pastel: Soft Peach #FDBCB4, Baby Blue #ADD8E6, Mint #98FF98, Lilac #E6E6FA, light BG
+- **Effects & Animation:** Inner+outer shadows (subtle, no hard lines), soft press (200ms ease-out), fluffy elements, smooth transitions
+- **Best For:** Educational apps, children's apps, SaaS platforms, creative tools, fun-focused, onboarding, casual games
+- **Performance:** ⚡ Good
+- **Accessibility:** ⚠ Ensure 4.5:1
+- **Framework Compatibility:** Tailwind 9/10, CSS-in-JS 9/10
+- **Complexity:** Medium
+
+\n## Typography
+## UI Pro Max Search Results
+**Domain:** typography | **Query:** elegant romantic editorial soft luxury
+**Source:** typography.csv | **Found:** 8 results
+
+### Result 1
+- **Font Pairing Name:** Classic Elegant
+- **Category:** Serif + Sans
+- **Heading Font:** Playfair Display
+- **Body Font:** Inter
+- **Mood/Style Keywords:** elegant, luxury, sophisticated, timeless, premium, editorial
+- **Best For:** Luxury brands, fashion, spa, beauty, editorial, magazines, high-end e-commerce
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Inter:wght@300;400;500;600;700|Playfair+Display:wght@400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+- **Notes:** High contrast between elegant heading and clean body. Perfect for luxury/premium.
+
+### Result 2
+- **Font Pairing Name:** Soft Rounded
+- **Category:** Sans + Sans
+- **Heading Font:** Varela Round
+- **Body Font:** Nunito Sans
+- **Mood/Style Keywords:** soft, rounded, friendly, approachable, warm, gentle
+- **Best For:** Children's products, pet apps, friendly brands, wellness, soft UI
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Nunito+Sans:wght@300;400;500;600;700|Varela+Round
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+- **Tailwind Config:** fontFamily: { heading: ['Varela Round', 'sans-serif'], body: ['Nunito Sans', 'sans-serif'] }
+- **Notes:** Both rounded and friendly. Perfect for soft UI designs.
+
+### Result 3
+- **Font Pairing Name:** Luxury Serif
+- **Category:** Serif + Sans
+- **Heading Font:** Cormorant
+- **Body Font:** Montserrat
+- **Mood/Style Keywords:** luxury, high-end, fashion, elegant, refined, premium
+- **Best For:** Fashion brands, luxury e-commerce, jewelry, high-end services
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Cormorant:wght@400;500;600;700|Montserrat:wght@300;400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Cormorant', 'serif'], sans: ['Montserrat', 'sans-serif'] }
+- **Notes:** Cormorant's elegance with Montserrat's geometric precision.
+
+### Result 4
+- **Font Pairing Name:** Real Estate Luxury
+- **Category:** Serif + Sans
+- **Heading Font:** Cinzel
+- **Body Font:** Josefin Sans
+- **Mood/Style Keywords:** real estate, luxury, elegant, sophisticated, property, premium
+- **Best For:** Real estate, luxury properties, architecture, interior design
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Cinzel:wght@400;500;600;700|Josefin+Sans:wght@300;400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Cinzel', 'serif'], sans: ['Josefin Sans', 'sans-serif'] }
+- **Notes:** Cinzel's elegance for headlines. Josefin for modern body.
+
+### Result 5
+- **Font Pairing Name:** Wedding/Romance
+- **Category:** Script + Serif
+- **Heading Font:** Great Vibes
+- **Body Font:** Cormorant Infant
+- **Mood/Style Keywords:** wedding, romance, elegant, script, invitation, feminine
+- **Best For:** Wedding sites, invitations, romantic brands, bridal
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Cormorant+Infant:wght@300;400;500;600;700|Great+Vibes
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+- **Tailwind Config:** fontFamily: { script: ['Great Vibes', 'cursive'], serif: ['Cormorant Infant', 'serif'] }
+- **Notes:** Great Vibes for elegant accents. Cormorant for readable text.
+
+### Result 6
+- **Font Pairing Name:** Art Deco
+- **Category:** Display + Sans
+- **Heading Font:** Poiret One
+- **Body Font:** Didact Gothic
+- **Mood/Style Keywords:** art deco, vintage, 1920s, elegant, decorative, gatsby
+- **Best For:** Vintage events, art deco themes, luxury hotels, classic cocktails
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Didact+Gothic|Poiret+One
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poiret+One&display=swap');
+- **Tailwind Config:** fontFamily: { display: ['Poiret One', 'sans-serif'], sans: ['Didact Gothic', 'sans-serif'] }
+- **Notes:** Poiret One for art deco headlines only. Didact for body.
+
+### Result 7
+- **Font Pairing Name:** Luxury Minimalist
+- **Category:** Serif + Sans
+- **Heading Font:** Bodoni Moda
+- **Body Font:** Jost
+- **Mood/Style Keywords:** luxury, minimalist, high-end, sophisticated, refined, premium
+- **Best For:** Luxury minimalist brands, high-end fashion, premium products
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Bodoni+Moda:wght@400;500;600;700|Jost:wght@300;400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Bodoni Moda', 'serif'], sans: ['Jost', 'sans-serif'] }
+- **Notes:** Bodoni's high contrast elegance. Jost for geometric body.
+
+### Result 8
+- **Font Pairing Name:** News Editorial
+- **Category:** Serif + Sans
+- **Heading Font:** Newsreader
+- **Body Font:** Roboto
+- **Mood/Style Keywords:** news, editorial, journalism, trustworthy, readable, informative
+- **Best For:** News sites, blogs, magazines, journalism, content-heavy sites
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Newsreader:wght@400;500;600;700|Roboto:wght@300;400;500;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Newsreader', 'serif'], sans: ['Roboto', 'sans-serif'] }
+- **Notes:** Newsreader designed for long-form reading. Roboto for UI.
+
+\n## Color
+## UI Pro Max Search Results
+**Domain:** color | **Query:** beauty wellness soft pastel service
+**Source:** colors.csv | **Found:** 8 results
+
+### Result 1
+- **Product Type:** Beauty/Spa/Wellness Service
+- **Keywords:** beauty, spa, wellness, service
+- **Primary (Hex):** #10B981
+- **Secondary (Hex):** #34D399
+- **CTA (Hex):** #8B5CF6
+- **Background (Hex):** #ECFDF5
+- **Text (Hex):** #064E3B
+- **Border (Hex):** #A7F3D0
+- **Notes:** Soft pastels (Pink #FFB6C1 Sage #90EE90) + Cream + Gold accents
+
+### Result 2
+- **Product Type:** B2B Service
+- **Keywords:** b2b, service
+- **Primary (Hex):** #0F172A
+- **Secondary (Hex):** #334155
+- **CTA (Hex):** #0369A1
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #020617
+- **Border (Hex):** #E2E8F0
+- **Notes:** Professional blue + neutral grey
+
+### Result 3
+- **Product Type:** Subscription Box Service
+- **Keywords:** subscription, box, service
+- **Primary (Hex):** #3B82F6
+- **Secondary (Hex):** #60A5FA
+- **CTA (Hex):** #F97316
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #1E293B
+- **Border (Hex):** #E2E8F0
+- **Notes:** Brand + Excitement colors
+
+### Result 4
+- **Product Type:** Service Landing Page
+- **Keywords:** service, landing, page
+- **Primary (Hex):** #3B82F6
+- **Secondary (Hex):** #60A5FA
+- **CTA (Hex):** #F97316
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #1E293B
+- **Border (Hex):** #E2E8F0
+- **Notes:** Brand primary + trust colors
+
+### Result 5
+- **Product Type:** Government/Public Service
+- **Keywords:** government, public, service
+- **Primary (Hex):** #0F172A
+- **Secondary (Hex):** #334155
+- **CTA (Hex):** #0369A1
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #020617
+- **Border (Hex):** #E2E8F0
+- **Notes:** Professional blue + high contrast
+
+### Result 6
+- **Product Type:** Cleaning Service
+- **Keywords:** cleaning, service
+- **Primary (Hex):** #3B82F6
+- **Secondary (Hex):** #60A5FA
+- **CTA (Hex):** #F97316
+- **Background (Hex):** #F8FAFC
+- **Text (Hex):** #1E293B
+- **Border (Hex):** #E2E8F0
+- **Notes:** Fresh Blue (#00B4D8) + Clean White + Green
+
+### Result 7
+- **Product Type:** Wedding/Event Planning
+- **Keywords:** wedding, event, planning
+- **Primary (Hex):** #7C3AED
+- **Secondary (Hex):** #A78BFA
+- **CTA (Hex):** #F97316
+- **Background (Hex):** #FAF5FF
+- **Text (Hex):** #4C1D95
+- **Border (Hex):** #DDD6FE
+- **Notes:** Soft Pink (#FFD6E0) + Gold + Cream + Sage
+
+### Result 8
+- **Product Type:** Restaurant/Food Service
+- **Keywords:** restaurant, food, service
+- **Primary (Hex):** #DC2626
+- **Secondary (Hex):** #F87171
+- **CTA (Hex):** #CA8A04
+- **Background (Hex):** #FEF2F2
+- **Text (Hex):** #450A0A
+- **Border (Hex):** #FECACA
+- **Notes:** Warm colors (Orange Red Brown) + appetizing imagery
+
+\n## UX
+## UI Pro Max Search Results
+**Domain:** ux | **Query:** accessibility mobile cards motion hierarchy
+**Source:** ux-guidelines.csv | **Found:** 8 results
+
+### Result 1
+- **Category:** Accessibility
+- **Issue:** Motion Sensitivity
+- **Platform:** All
+- **Description:** Parallax/Scroll-jacking causes nausea
+- **Do:** Respect prefers-reduced-motion
+- **Don't:** Force scroll effects
+- **Code Example Good:** @media (prefers-reduced-motion)
+- **Code Example Bad:** ScrollTrigger.create()
+- **Severity:** High
+
+### Result 2
+- **Category:** Accessibility
+- **Issue:** Heading Hierarchy
+- **Platform:** Web
+- **Description:** Screen readers use headings for navigation
+- **Do:** Use sequential heading levels h1-h6
+- **Don't:** Skip heading levels or misuse for styling
+- **Code Example Good:** h1 then h2 then h3
+- **Code Example Bad:** h1 then h4
+- **Severity:** Medium
+
+### Result 3
+- **Category:** Animation
+- **Issue:** Reduced Motion
+- **Platform:** All
+- **Description:** Respect user's motion preferences
+- **Do:** Check prefers-reduced-motion media query
+- **Don't:** Ignore accessibility motion settings
+- **Code Example Good:** @media (prefers-reduced-motion: reduce)
+- **Code Example Bad:** No motion query check
+- **Severity:** High
+
+### Result 4
+- **Category:** Animation
+- **Issue:** Excessive Motion
+- **Platform:** All
+- **Description:** Too many animations cause distraction and motion sickness
+- **Do:** Animate 1-2 key elements per view maximum
+- **Don't:** Animate everything that moves
+- **Code Example Good:** Single hero animation
+- **Code Example Bad:** animate-bounce on 5+ elements
+- **Severity:** High
+
+### Result 5
+- **Category:** Navigation
+- **Issue:** Breadcrumbs
+- **Platform:** Web
+- **Description:** Show user location in site hierarchy
+- **Do:** Use for sites with 3+ levels of depth
+- **Don't:** Use for flat single-level sites
+- **Code Example Good:** Home > Category > Product
+- **Code Example Bad:** Only on deep nested pages
+- **Severity:** Low
+
+### Result 6
+- **Category:** Animation
+- **Issue:** Easing Functions
+- **Platform:** All
+- **Description:** Linear motion feels robotic
+- **Do:** Use ease-out for entering ease-in for exiting
+- **Don't:** Use linear for UI transitions
+- **Code Example Good:** ease-out
+- **Code Example Bad:** linear
+- **Severity:** Low
+
+### Result 7
+- **Category:** Typography
+- **Issue:** Font Size Scale
+- **Platform:** All
+- **Description:** Consistent type hierarchy aids scanning
+- **Do:** Use consistent modular scale
+- **Don't:** Random font sizes
+- **Code Example Good:** Type scale (12 14 16 18 24 32)
+- **Code Example Bad:** Arbitrary sizes
+- **Severity:** Medium
+
+### Result 8
+- **Category:** Forms
+- **Issue:** Mobile Keyboards
+- **Platform:** Mobile
+- **Description:** Show appropriate keyboard for input type
+- **Do:** Use inputmode attribute
+- **Don't:** Default keyboard for all inputs
+- **Code Example Good:** inputmode='numeric'
+- **Code Example Bad:** Text keyboard for numbers
+- **Severity:** Medium
+
+\n## React Stack
+## UI Pro Max Stack Guidelines
+**Stack:** react | **Query:** responsive mobile card layout theming
+**Source:** stacks/react.csv | **Found:** 0 results
+
