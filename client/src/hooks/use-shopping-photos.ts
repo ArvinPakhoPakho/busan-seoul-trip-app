@@ -1,147 +1,165 @@
-// hooks/use-shopping-photos.ts
-// Manages shopping photo state — loads from IndexedDB, compresses on upload,
-// creates object URLs for display, and cleans up on unmount.
+import { useState, useEffect, useCallback } from "react";
+import {
+  savePhoto,
+  deletePhoto,
+  getAllPhotos,
+  type PhotoRecord,
+} from "@/lib/photo-db";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { deletePhoto, getAllPhotos, savePhoto, type StoredPhoto } from "@/lib/photo-db";
-import { compressImage } from "@/lib/compress-image";
-
-export type PhotoEntry = {
-  id: string;
-  itemId: string;
-  name: string;
-  objectUrl: string;
-  sizeKb: number;
-};
+// ── 型別 ──────────────────────────────────────────────────────────────────────
 
 export type UploadStatus = {
   itemId: string;
   fileName: string;
-  progress: "compressing" | "saving" | "done" | "error";
+  progress: "uploading" | "done" | "error";
+  percent: number;
   error?: string;
 };
 
-type PhotoMap = Record<string, PhotoEntry[]>;
+// Home.tsx 用 photo.objectUrl / photo.sizeKb / photo.name / photo.id
+export type ShoppingPhoto = PhotoRecord & {
+  objectUrl: string; // Cloudinary URL，直接當 objectUrl 用
+};
 
-export function useShoppingPhotos() {
-  const [photoMap, setPhotoMap] = useState<PhotoMap>({});
-  const [uploadStatuses, setUploadStatuses] = useState<UploadStatus[]>([]);
-  const objectUrlsRef = useRef<string[]>([]);
+// ── Cloudinary 設定 ───────────────────────────────────────────────────────────
 
-  // ── load all photos from IndexedDB on mount ───────────────────────────────
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+const CLOUD_NAME = "dhtv7akpx";
+const UPLOAD_PRESET = "busan_trip";
 
-    getAllPhotos().then((stored) => {
-      const map: PhotoMap = {};
+async function uploadToCloudinary(
+  file: File,
+  onProgress: (percent: number) => void,
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+    formData.append("folder", "busan-seoul-trip");
 
-      for (const photo of stored) {
-        const objectUrl = URL.createObjectURL(photo.blob);
-        objectUrlsRef.current.push(objectUrl);
+    const xhr = new XMLHttpRequest();
 
-        const entry: PhotoEntry = {
-          id: photo.id,
-          itemId: photo.itemId,
-          name: photo.name,
-          objectUrl,
-          sizeKb: Math.round(photo.blob.size / 1024),
-        };
-
-        if (!map[photo.itemId]) map[photo.itemId] = [];
-        map[photo.itemId].push(entry);
+    xhr.upload.addEventListener("progress", (e) => {
+      if (e.lengthComputable) {
+        onProgress(Math.round((e.loaded / e.total) * 100));
       }
-
-      setPhotoMap(map);
-    }).catch(() => {
-      // IndexedDB unavailable (e.g. private browsing on some browsers) — fail silently
     });
 
-    return () => {
-      for (const url of objectUrlsRef.current) {
-        URL.revokeObjectURL(url);
+    xhr.addEventListener("load", () => {
+      if (xhr.status === 200) {
+        const res = JSON.parse(xhr.responseText);
+        resolve(res.secure_url as string);
+      } else {
+        reject(new Error("上傳失敗，請重試"));
       }
-    };
+    });
+
+    xhr.addEventListener("error", () => {
+      reject(new Error("網路錯誤，請檢查連線"));
+    });
+
+    xhr.open(
+      "POST",
+      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+    );
+    xhr.send(formData);
+  });
+}
+
+// ── hook ──────────────────────────────────────────────────────────────────────
+
+export function useShoppingPhotos() {
+  const [photoMap, setPhotoMap] = useState<Record<string, ShoppingPhoto[]>>({});
+  const [uploadStatuses, setUploadStatuses] = useState<UploadStatus[]>([]);
+
+  // 從 IndexedDB 載入，把 cloudinaryUrl 對應到 objectUrl
+  const refreshPhotos = useCallback(async () => {
+    const all = await getAllPhotos();
+    const map: Record<string, ShoppingPhoto[]> = {};
+    for (const record of all) {
+      const photo: ShoppingPhoto = {
+        ...record,
+        objectUrl: record.cloudinaryUrl,
+      };
+      if (!map[record.itemId]) map[record.itemId] = [];
+      map[record.itemId].push(photo);
+    }
+    setPhotoMap(map);
   }, []);
 
-  // ── upload ────────────────────────────────────────────────────────────────
+  useEffect(() => {
+    refreshPhotos();
+  }, [refreshPhotos]);
+
+  // uploadPhotos(itemId, FileList | null)
   const uploadPhotos = useCallback(
     async (itemId: string, files: FileList | null) => {
-      if (!files?.length) return;
+      if (!files || files.length === 0) return;
 
-      const fileArray = Array.from(files).filter((f) =>
-        f.type.startsWith("image/"),
-      );
+      const fileArray = Array.from(files);
 
       for (const file of fileArray) {
         const fileName = file.name;
 
+        // 加入「上傳中」狀態
         setUploadStatuses((prev) => [
-          { itemId, fileName, progress: "compressing" },
           ...prev,
+          { itemId, fileName, progress: "uploading", percent: 0 },
         ]);
 
         try {
-          const blob = await compressImage(file, {
-            maxWidthPx: 1800,
-            maxHeightPx: 1800,
-            quality: 0.84,
+          const cloudinaryUrl = await uploadToCloudinary(file, (percent) => {
+            setUploadStatuses((prev) =>
+              prev.map((s) =>
+                s.itemId === itemId &&
+                s.fileName === fileName &&
+                s.progress === "uploading"
+                  ? { ...s, percent }
+                  : s,
+              ),
+            );
           });
 
+          // 存到 IndexedDB（只存 URL，不存圖片 binary）
+          await savePhoto({
+            itemId,
+            name: fileName,
+            cloudinaryUrl,
+            sizeKb: Math.round(file.size / 1024),
+            uploadedAt: new Date(),
+          });
+
+          await refreshPhotos();
+
+          // 更新為完成狀態
           setUploadStatuses((prev) =>
             prev.map((s) =>
-              s.fileName === fileName && s.itemId === itemId
-                ? { ...s, progress: "saving" }
+              s.itemId === itemId &&
+              s.fileName === fileName &&
+              s.progress === "uploading"
+                ? { ...s, progress: "done", percent: 100 }
                 : s,
             ),
           );
 
-          const photoId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-
-          const storedPhoto: StoredPhoto = {
-            id: photoId,
-            itemId,
-            name: fileName,
-            blob,
-            createdAt: Date.now(),
-          };
-
-          await savePhoto(storedPhoto);
-
-          const objectUrl = URL.createObjectURL(blob);
-          objectUrlsRef.current.push(objectUrl);
-
-          const entry: PhotoEntry = {
-            id: photoId,
-            itemId,
-            name: fileName,
-            objectUrl,
-            sizeKb: Math.round(blob.size / 1024),
-          };
-
-          setPhotoMap((prev) => ({
-            ...prev,
-            [itemId]: [...(prev[itemId] ?? []), entry],
-          }));
-
-          setUploadStatuses((prev) =>
-            prev.map((s) =>
-              s.fileName === fileName && s.itemId === itemId
-                ? { ...s, progress: "done" }
-                : s,
-            ),
-          );
-
+          // 3 秒後移除
           setTimeout(() => {
             setUploadStatuses((prev) =>
               prev.filter(
-                (s) => !(s.fileName === fileName && s.itemId === itemId),
+                (s) =>
+                  !(
+                    s.itemId === itemId &&
+                    s.fileName === fileName &&
+                    s.progress === "done"
+                  ),
               ),
             );
-          }, 2500);
+          }, 3000);
         } catch (err) {
           setUploadStatuses((prev) =>
             prev.map((s) =>
-              s.fileName === fileName && s.itemId === itemId
+              s.itemId === itemId &&
+              s.fileName === fileName &&
+              s.progress === "uploading"
                 ? {
                     ...s,
                     progress: "error",
@@ -153,24 +171,17 @@ export function useShoppingPhotos() {
         }
       }
     },
-    [],
+    [refreshPhotos],
   );
 
-  // ── remove ────────────────────────────────────────────────────────────────
-  const removePhoto = useCallback(async (itemId: string, photoId: string) => {
-    await deletePhoto(photoId).catch(() => {});
-
-    setPhotoMap((prev) => {
-      const updated = (prev[itemId] ?? []).filter((p) => {
-        if (p.id === photoId) {
-          URL.revokeObjectURL(p.objectUrl);
-          return false;
-        }
-        return true;
-      });
-      return { ...prev, [itemId]: updated };
-    });
-  }, []);
+  // removePhoto(itemId, photoId)  ← Home.tsx 的呼叫方式
+  const removePhoto = useCallback(
+    async (_itemId: string, photoId: number) => {
+      await deletePhoto(photoId);
+      await refreshPhotos();
+    },
+    [refreshPhotos],
+  );
 
   return {
     photoMap,

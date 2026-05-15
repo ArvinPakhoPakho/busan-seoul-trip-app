@@ -1079,31 +1079,25 @@ export default function Home() {
                             className={`flex items-center gap-2 rounded-[0.9rem] px-3 py-2 text-[11px] font-semibold ${
                               s.progress === "error"
                                 ? "bg-[#fff1f1] text-[#8b4a4a]"
-                                : s.progress === "done"
-                                  ? "bg-[#eef7ef] text-[#336949]"
-                                  : "bg-[#f4f8fb] text-[#55728d]"
-                            }`}
-                          >
-                            {s.progress === "compressing" && (
-                              <>
-                                <span className="animate-spin inline-block">⏳</span>
-                                <span className="truncate">{s.fileName} — 壓縮中…</span>
-                              </>
-                            )}
-                            {s.progress === "saving" && (
-                              <>
-                                <span className="animate-pulse inline-block">💾</span>
-                                <span className="truncate">{s.fileName} — 儲存中…</span>
-                              </>
-                            )}
-                            {s.progress === "done" && (
-                              <span className="truncate">✅ {s.fileName} — 已完成</span>
-                            )}
-                            {s.progress === "error" && (
-                              <span className="truncate">❌ {s.fileName} — {s.error}</span>
-                            )}
-                          </div>
-                        ))}
+                                  : s.progress === "done"
+                                    ? "bg-[#eef7ef] text-[#336949]"
+                                    : "bg-[#f4f8fb] text-[#55728d]"
+                              }`}
+                            >
+                              {s.progress === "uploading" && (
+                                <>
+                                  <span className="animate-spin inline-block">⏳</span>
+                                  <span className="truncate">{s.fileName} — 上傳中… {s.percent}%</span>
+                                </>
+                              )}
+                              {s.progress === "done" && (
+                                <span className="truncate">✅ {s.fileName} — 已完成</span>
+                              )}
+                              {s.progress === "error" && (
+                                <span className="truncate">❌ {s.fileName} — {s.error}</span>
+                              )}
+                            </div>
+                          ))}
                       </div>
                     ) : null}
 
