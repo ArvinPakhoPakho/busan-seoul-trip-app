@@ -1,12 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import {
-  savePhoto,
-  deletePhoto,
-  getAllPhotos,
-  type PhotoRecord,
-} from "@/lib/photo-db";
-
-// ── 型別 ──────────────────────────────────────────────────────────────────────
 
 export type UploadStatus = {
   itemId: string;
@@ -16,25 +8,33 @@ export type UploadStatus = {
   error?: string;
 };
 
-// Home.tsx 用 photo.objectUrl / photo.sizeKb / photo.name / photo.id
-export type ShoppingPhoto = PhotoRecord & {
-  objectUrl: string; // Cloudinary URL，直接當 objectUrl 用
+export type ShoppingPhoto = {
+  id: string;          // Cloudinary public_id
+  itemId: string;
+  name: string;
+  cloudinaryUrl: string;
+  sizeKb: number;
+  uploadedAt: Date;
+  objectUrl: string;   // 同 cloudinaryUrl
 };
-
-// ── Cloudinary 設定 ───────────────────────────────────────────────────────────
 
 const CLOUD_NAME = "dhtv7akpx";
 const UPLOAD_PRESET = "busan_trip";
+const FOLDER = "busan-seoul-trip";
+
+// ── 上傳到 Cloudinary（帶 tag = itemId）────────────────────────────────────────
 
 async function uploadToCloudinary(
   file: File,
+  itemId: string,
   onProgress: (percent: number) => void,
-): Promise<string> {
+): Promise<{ url: string; publicId: string; sizeKb: number }> {
   return new Promise((resolve, reject) => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", UPLOAD_PRESET);
-    formData.append("folder", "busan-seoul-trip");
+    formData.append("folder", FOLDER);
+    formData.append("tags", itemId);   // ← 關鍵：用 tag 記錄 itemId
 
     const xhr = new XMLHttpRequest();
 
@@ -47,9 +47,13 @@ async function uploadToCloudinary(
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         const res = JSON.parse(xhr.responseText);
-        resolve(res.secure_url as string);
+        resolve({
+          url: res.secure_url as string,
+          publicId: res.public_id as string,
+          sizeKb: Math.round((res.bytes as number) / 1024),
+        });
       } else {
-        reject(new Error("上傳失敗，請重試"));
+        reject(new Error(`上傳失敗 (${xhr.status})`));
       }
     });
 
@@ -57,101 +61,109 @@ async function uploadToCloudinary(
       reject(new Error("網路錯誤，請檢查連線"));
     });
 
-    xhr.open(
-      "POST",
-      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-    );
+    xhr.open("POST", `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`);
     xhr.send(formData);
   });
 }
 
-// ── hook ──────────────────────────────────────────────────────────────────────
+// ── 從 Cloudinary tag list 讀取照片 ────────────────────────────────────────────
+
+async function fetchPhotosByTag(itemId: string): Promise<ShoppingPhoto[]> {
+  try {
+    const url = `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${encodeURIComponent(itemId)}.json`;
+    const res = await fetch(url);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.resources || []).map((r: any) => {
+      const cloudinaryUrl = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${r.public_id}.${r.format}`;
+      return {
+        id: r.public_id,
+        itemId,
+        name: r.public_id.split("/").pop() || r.public_id,
+        cloudinaryUrl,
+        objectUrl: cloudinaryUrl,
+        sizeKb: Math.round((r.bytes || 0) / 1024),
+        uploadedAt: new Date(r.created_at),
+      };
+    });
+  } catch {
+    return [];
+  }
+}
+
+// ── hook ───────────────────────────────────────────────────────────────────────
+
+const ITEM_IDS = ["olive-young-beauty", "pharmacy-beauty", "korea-snacks-souvenir"];
 
 export function useShoppingPhotos() {
   const [photoMap, setPhotoMap] = useState<Record<string, ShoppingPhoto[]>>({});
   const [uploadStatuses, setUploadStatuses] = useState<UploadStatus[]>([]);
 
-  // 從 IndexedDB 載入，把 cloudinaryUrl 對應到 objectUrl
   const refreshPhotos = useCallback(async () => {
-    const all = await getAllPhotos();
-    const map: Record<string, ShoppingPhoto[]> = {};
-    for (const record of all) {
-      const photo: ShoppingPhoto = {
-        ...record,
-        objectUrl: record.cloudinaryUrl,
-      };
-      if (!map[record.itemId]) map[record.itemId] = [];
-      map[record.itemId].push(photo);
-    }
-    setPhotoMap(map);
+    const entries = await Promise.all(
+      ITEM_IDS.map(async (id) => {
+        const photos = await fetchPhotosByTag(id);
+        return [id, photos] as const;
+      }),
+    );
+    setPhotoMap(Object.fromEntries(entries));
   }, []);
 
   useEffect(() => {
     refreshPhotos();
   }, [refreshPhotos]);
 
-  // uploadPhotos(itemId, FileList | null)
   const uploadPhotos = useCallback(
     async (itemId: string, files: FileList | null) => {
       if (!files || files.length === 0) return;
 
-      const fileArray = Array.from(files);
-
-      for (const file of fileArray) {
+      for (const file of Array.from(files)) {
         const fileName = file.name;
 
-        // 加入「上傳中」狀態
         setUploadStatuses((prev) => [
           ...prev,
           { itemId, fileName, progress: "uploading", percent: 0 },
         ]);
 
         try {
-          const cloudinaryUrl = await uploadToCloudinary(file, (percent) => {
+          const { url, sizeKb } = await uploadToCloudinary(file, itemId, (percent) => {
             setUploadStatuses((prev) =>
               prev.map((s) =>
-                s.itemId === itemId &&
-                s.fileName === fileName &&
-                s.progress === "uploading"
+                s.itemId === itemId && s.fileName === fileName && s.progress === "uploading"
                   ? { ...s, percent }
                   : s,
               ),
             );
           });
 
-          // 存到 IndexedDB
-          await savePhoto({
+          // 直接把新照片加進 photoMap，不等 API 刷新
+          const newPhoto: ShoppingPhoto = {
+            id: url,
             itemId,
             name: fileName,
-            cloudinaryUrl,
-            sizeKb: Math.round(file.size / 1024),
+            cloudinaryUrl: url,
+            objectUrl: url,
+            sizeKb,
             uploadedAt: new Date(),
-          });
+          };
 
-          // 先更新為完成狀態
+          setPhotoMap((prev) => ({
+            ...prev,
+            [itemId]: [...(prev[itemId] ?? []), newPhoto],
+          }));
+
           setUploadStatuses((prev) =>
             prev.map((s) =>
-              s.itemId === itemId &&
-              s.fileName === fileName &&
-              s.progress === "uploading"
+              s.itemId === itemId && s.fileName === fileName && s.progress === "uploading"
                 ? { ...s, progress: "done", percent: 100 }
                 : s,
             ),
           );
 
-          // 再刷新照片（確保在 done 狀態之後）
-          await refreshPhotos();
-
-          // 3 秒後移除狀態
           setTimeout(() => {
             setUploadStatuses((prev) =>
               prev.filter(
-                (s) =>
-                  !(
-                    s.itemId === itemId &&
-                    s.fileName === fileName &&
-                    s.progress === "done"
-                  ),
+                (s) => !(s.itemId === itemId && s.fileName === fileName && s.progress === "done"),
               ),
             );
           }, 3000);
@@ -159,9 +171,7 @@ export function useShoppingPhotos() {
         } catch (err) {
           setUploadStatuses((prev) =>
             prev.map((s) =>
-              s.itemId === itemId &&
-              s.fileName === fileName &&
-              s.progress === "uploading"
+              s.itemId === itemId && s.fileName === fileName && s.progress === "uploading"
                 ? {
                     ...s,
                     progress: "error",
@@ -173,22 +183,22 @@ export function useShoppingPhotos() {
         }
       }
     },
-    [refreshPhotos],
+    [],
   );
 
-  // removePhoto(itemId, photoId)  ← Home.tsx 的呼叫方式
   const removePhoto = useCallback(
-    async (_itemId: string, photoId: number) => {
-      await deletePhoto(photoId);
-      await refreshPhotos();
+    async (_itemId: string, photoId: string | number) => {
+      // Cloudinary 免費版不支援前端刪除，只從本地 state 移除
+      setPhotoMap((prev) => {
+        const updated = { ...prev };
+        for (const key of Object.keys(updated)) {
+          updated[key] = updated[key].filter((p) => p.id !== String(photoId));
+        }
+        return updated;
+      });
     },
-    [refreshPhotos],
+    [],
   );
 
-  return {
-    photoMap,
-    uploadStatuses,
-    uploadPhotos,
-    removePhoto,
-  };
+  return { photoMap, uploadStatuses, uploadPhotos, removePhoto };
 }
